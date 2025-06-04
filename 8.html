@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>task_3</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap" rel="stylesheet">
+
+        <style>
+            body{
+                background-color: rgb(255, 243, 217);
+                background-position-y: center;
+            }
+
+            .main{
+                position: relative;
+                margin-top: 170px;
+
+            }
+
+            .bg{
+                display: block;
+                margin: auto;
+                margin-top: -420px;
+            }
+            .pnt{
+                width: 500px;
+                position:relative;
+                top: 0px;
+                left: 505px;
+                z-index: 2;
+                margin-top: 0px;
+                
+            }
+            
+            
+            
+            button{
+                background-color:rgb(141, 113, 77);
+                color: white;
+                border: none;
+                border-radius: 5px;
+                font-size: 30px;
+                width: 150px;
+                height: 45px;
+                display: block;
+                margin: auto;
+                text-decoration: underline;
+                text-decoration-color: rgb(141, 113, 77);
+                margin-top: 60px;
+                font-family: 'Rubik Dirt',system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+
+            }
+
+            
+            button:hover{
+                opacity: 0.75;
+                cursor: pointer;
+            }
+
+            button:active{
+                background-color: rgb(79, 67, 55);
+                opacity: 1;
+                text-decoration-color:  rgb(79, 67, 55);
+            }
+
+
+
+            .back{
+                font-size: 35px;
+                margin-left: 10px;
+                width: 60px;
+                display: inline-block;
+                margin-top: 10px;
+            }
+
+            .score{
+                width:fit-content;
+                margin-top: 20px;
+            }
+
+            
+        </style>
+    </head>
+
+    <body>
+
+        <a href="http://127.0.0.1:5500/task_1/1.html">
+            <button class="back">
+                <
+            </button>
+
+        </a>
+
+        <div class="main">
+
+             <div id="rotatingElement">
+
+                <img class='pnt' class="pnt" src="img11.png">
+
+            </div>
+                <img class='bg' src="img7 (1).png">
+            
+        </div>
+
+         <button class="stop" id="stop" onclick="
+          cancelAnimationFrame(animationId);
+          if(angle<90) x = Math.round((angle*1000)/90)/10;
+          if(angle>90) x = Math.round(((180-angle)*1000)/90)/10;
+          angleDisplay.textContent = x;
+         " 
+         >
+                STOP
+        </button>
+
+         <button class="score">SCORE : <span id="angleDisplay">0</span></button>
+
+
+        <script>
+
+            document.body.style.overflow = "hidden";
+
+            
+            const spinner = document.getElementById('rotatingElement'); 
+            const stopButton = document.getElementById(".stop");
+            
+            let angle = 0;
+            let direction = 1;
+           
+            function spin() {
+               
+                angle+=1*direction;
+
+                radians = angle * (Math.PI / 180);
+
+
+                if (angle >= 180) direction = -1;
+                if (angle <= 0) direction = 1;
+
+                rotatingElement.style.transform=`rotate(${-angle+360}deg)`;
+                animationId=requestAnimationFrame(spin);
+            }
+
+            spin('rotatingElement');
+
+
+            const button = document.getElementById('stop');
+
+            button.addEventListener('click', function() {
+                button.textContent = 'RETRY';
+
+            });
+
+            button.addEventListener('dblclick',function(){
+                button.textContent = 'STOP'
+                spin('rotatingElement');
+            });
+    
+        </script>
+       
+    </body>
+</html>
