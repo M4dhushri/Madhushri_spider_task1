@@ -1,2 +1,2 @@
-# Madhushri_spider_task1
-Madhushri A_114124057_spidertasks-1
+# UI/UX
+I inccluded only less number of examples, as when the number increases the transitions weren't proper. 
