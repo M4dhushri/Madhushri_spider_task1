@@ -1,2 +1,2 @@
-# Madhushri_spider_task1
-Madhushri A_114124057_spidertasks-1
+# APP_DEV
+The hoome page contains two options namely, PLAY and HELP.  The PLAY button redirects you to the next frame. There'll be a STOP button to stop the spinning of the pointer like thing. The score will be calculated accordingly and displayed. Double-click the RETRY button to restart the game. (I tried to make the needle move in a realistic way using sin function, but I couldn't.)  the HELP page contains the instructions and stuff.
